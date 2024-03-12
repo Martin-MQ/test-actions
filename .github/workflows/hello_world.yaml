@@ -1,0 +1,28 @@
+name: Hello World workflow
+
+on: # when the action should be triggered
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # this add a button for manually execute the action without actually change the code
+
+jobs:
+  print_hello_world: # the job name
+    runs-on: ubuntu-latest
+    steps:
+      - use: actions/checkout@v4 # this is the latest version at 2024-03-11
+      - name: hello world
+        run: echo "Hello World!" # the command to run
+        shell: bash # the shell ENV for running the command
+
+  goodbye: # another job to run in parallel
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "Good Wrold!"
+        shell: bash
+
+    
