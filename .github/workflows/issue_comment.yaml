@@ -11,6 +11,9 @@ jobs:
       - name: "dump github context" # this line names a certain step
         run: echo '${{ toJSON(github.event)}}' | jq
         shell: bash
+      - name: "Print the current issue number"
+        run: echo ${{ github.event.issue.number }}
+        shell: bash
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v4
         with:
