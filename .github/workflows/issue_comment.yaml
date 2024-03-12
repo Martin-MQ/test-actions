@@ -51,6 +51,7 @@ jobs:
   comment-with-GitHub-CLI:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Create comment with GitHub CLI
         run: gh issue comment ${ISSUE_NUMBER} --body "auto comment from gh" 
         env:
