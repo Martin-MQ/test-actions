@@ -47,3 +47,12 @@ jobs:
           OWNER: ${{ github.event.repository.owner.login }}
           REPO: ${{ github.event.repository.name }}
           ISSUE_NUMBER: ${{github.event.issue.number}}
+          
+  comment-with-GitHub-CLI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment with GitHub CLI
+        run: gh issue comment ${ISSUE_NUMBER} --body "auto comment from gh" 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{github.event.issue.number}}
