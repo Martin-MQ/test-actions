@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4 # this is the latest version at 2024-03-11
       - name: hello world
-        run: echo "Hello World!" # the command to run
+        run: echo "Hello World!!!!" # the command to run
         shell: bash # the shell ENV for running the command
 
   goodbye: # another job to run in parallel
